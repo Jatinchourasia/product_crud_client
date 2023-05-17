@@ -1,0 +1,58 @@
+<div class="container">
+  <h1>Signup</h1>
+  <form class="form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        formControlName="name"
+        required
+        [disabled]="isSubmitting"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        formControlName="email"
+        required
+        [disabled]="isSubmitting"
+      />
+      <mat-error
+        *ngIf="
+          signupForm.get('email')?.hasError('email') &&
+          !signupForm.get('email')?.hasError('required')
+        "
+      >
+        Please enter a valid email.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        formControlName="password"
+        type="password"
+        required
+        [disabled]="isSubmitting"
+      />
+      <mat-error *ngIf="signupForm.get('password')?.hasError('required')">
+        Password is required.
+      </mat-error>
+      <mat-error *ngIf="signupForm.get('password')?.hasError('minlength')">
+        Password should be at least 6 characters long.
+      </mat-error>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!signupForm.valid || isSubmitting"
+    >
+      Sign Up
+    </button>
+  </form>
+</div>

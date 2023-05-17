@@ -1,0 +1,56 @@
+<div class="container">
+  <form
+    class="form"
+    [formGroup]="updateProductForm"
+    (ngSubmit)="onSubmit()"
+    enctype="multipart/form-data"
+  >
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput type="text" formControlName="name" id="name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Price</mat-label>
+      <input matInput type="number" formControlName="price" id="price" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea
+        matInput
+        formControlName="description"
+        id="description"
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <select matNativeControl formControlName="category" id="category">
+        <option value="">-- Select category --</option>
+        <option value="casual">casual</option>
+        <option value="formal">formal</option>
+        <option value="sportswear">sportswear</option>
+        <option value="footwear">footwear</option>
+      </select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Stock</mat-label>
+      <input matInput type="number" formControlName="stock" id="stock" />
+    </mat-form-field>
+    <div class="imageInput">
+      <img [src]="selectedImage" alt="" />
+    </div>
+    <input
+      type="file"
+      formControlName="photo"
+      id="photo"
+      (change)="onFileSelected($event)"
+      accept=".jpg, .png"
+    />
+    <button mat-raised-button color="primary" type="submit">
+      Update Product
+    </button>
+  </form>
+</div>

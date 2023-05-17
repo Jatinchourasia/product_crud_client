@@ -1,0 +1,32 @@
+<div class="admin">
+  <h1>Admin Dashoard</h1>
+
+  <div class="container">
+    <div class="card" *ngFor="let product of products">
+      <div class="img">
+        <img src="{{ product.photo.secure_url }}" alt="product" />
+      </div>
+
+      <div class="detail">
+        <h2>{{ product.name }}</h2>
+      </div>
+      <div class="btncontainer">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="navigateToUser(product._id)"
+        >
+          update
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="delete(product._id)"
+          [disabled]="isDeleting"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

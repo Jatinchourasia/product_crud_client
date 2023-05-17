@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "https://jade-clam-hose.cyclic.app",
+    "secure": true,
+    "changeOrigin": true
+  }
+}

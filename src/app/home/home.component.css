@@ -1,0 +1,38 @@
+.home {
+  min-height: calc(100vh - 60px);
+  width: 75vw;
+  padding: 1rem 0;
+  margin: 0 12.5vw;
+  max-width: 100rem;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.card {
+  height: 16rem;
+  background: #cad3fc;
+  width: 11rem;
+  border-radius: 12px;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.img {
+  height: 11rem;
+  width: 10rem;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+img {
+  width: 100%;
+}
+.detail {
+  padding: 0.5rem;
+}
+.detail h2,
+p {
+  margin: 0;
+}
