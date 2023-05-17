@@ -5,6 +5,7 @@ import { ProductService } from '../product-service.service';
 import { Product } from '../interfaces/product';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { TemplateBindingParseResult } from '@angular/compiler';
 
 @Component({
   selector: 'app-update-product',
@@ -15,7 +16,7 @@ export class UpdateProductComponent implements OnInit {
   updateProductForm!: FormGroup;
   productId!: string | null;
   product!: Product;
-
+  isSubmitting = false;
   selectedImage: string | ArrayBuffer | null = null;
   file: File | null = null;
   constructor(
@@ -72,6 +73,8 @@ export class UpdateProductComponent implements OnInit {
 
   onSubmit(): void {
     if (this.updateProductForm.valid) {
+      this.isSubmitting = true;
+      TemplateBindingParseResult;
       const formData = new FormData();
       formData.append('name', this.updateProductForm.value.name);
       formData.append('price', this.updateProductForm.value.price);
@@ -89,6 +92,7 @@ export class UpdateProductComponent implements OnInit {
           this.productService
             .updateProduct(this.productId, formData)
             .subscribe((product) => {
+              this.isSubmitting = false;
               this.product = product;
               // Use the setValue method to populate the form fields with the product data
               this.updateProductForm.setValue({
@@ -105,7 +109,7 @@ export class UpdateProductComponent implements OnInit {
               });
 
               this.updateProductForm.reset();
-              this.router.navigate(['/']);
+              this.router.navigate(['/admin']);
             });
         }
       });

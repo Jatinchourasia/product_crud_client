@@ -44,7 +44,7 @@ export class CreateProductComponent implements OnInit {
   }
   onSubmit(): void {
     if (this.productForm.valid) {
-      this.isSubmitting = false;
+      this.isSubmitting = true;
 
       const formData = new FormData();
       formData.append('name', this.productForm.value.name);

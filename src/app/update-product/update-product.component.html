@@ -7,12 +7,24 @@
   >
     <mat-form-field>
       <mat-label>Name</mat-label>
-      <input matInput type="text" formControlName="name" id="name" />
+      <input
+        [disabled]="isSubmitting"
+        matInput
+        type="text"
+        formControlName="name"
+        id="name"
+      />
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Price</mat-label>
-      <input matInput type="number" formControlName="price" id="price" />
+      <input
+        [disabled]="isSubmitting"
+        matInput
+        type="number"
+        formControlName="price"
+        id="price"
+      />
     </mat-form-field>
 
     <mat-form-field>
@@ -37,19 +49,31 @@
 
     <mat-form-field>
       <mat-label>Stock</mat-label>
-      <input matInput type="number" formControlName="stock" id="stock" />
+      <input
+        [disabled]="isSubmitting"
+        matInput
+        type="number"
+        formControlName="stock"
+        id="stock"
+      />
     </mat-form-field>
     <div class="imageInput">
       <img [src]="selectedImage" alt="" />
     </div>
     <input
+      [disabled]="isSubmitting"
       type="file"
       formControlName="photo"
       id="photo"
       (change)="onFileSelected($event)"
       accept=".jpg, .png"
     />
-    <button mat-raised-button color="primary" type="submit">
+    <button
+      [disabled]="isSubmitting"
+      mat-raised-button
+      color="primary"
+      type="submit"
+    >
       Update Product
     </button>
   </form>
