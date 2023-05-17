@@ -7,7 +7,7 @@ import { Product } from './interfaces/product.js';
   providedIn: 'root',
 })
 export class ProductService {
-  private apiUrl = 'http://localhost:4000/api';
+  private apiUrl = 'https://bronze-lovebird-gear.cyclic.app/api';
   constructor(private http: HttpClient) {}
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.apiUrl}/products`);

@@ -21,13 +21,9 @@ interface Body2 {
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = 'http://localhost:4000/api';
+  private apiUrl = 'https://bronze-lovebird-gear.cyclic.app/api';
 
   constructor(private http: HttpClient) {}
-
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.apiUrl}/products`);
-  }
 
   signup(data: Body): Observable<SignupResponse> {
     return this.http.post<SignupResponse>(`${this.apiUrl}/signup`, data).pipe(
